@@ -1,33 +1,32 @@
 package com.spring.springCourse.persistence.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Setter
 @Getter
-@NoArgsConstructor
 @Table(name = "productos")
-public class Product {
+public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id_producto")
-    private Integer productId;
-    @Column(name = "nombre")
-    private String name;
+    private Integer idProducto;
+    private String nombre;
     @Column(name = "id_categoria")
-    private Integer categoryId;
+    private Integer idCategoria;
     @Column(name = "codigo_barras")
-    private String barCode;
+    private String codigoBarras;
     @Column(name = "precio_venta")
-    private Double priceSale;
+    private Double precioVenta;
     @Column(name = "cantidad_stock")
-    private Integer quantityStock;
-    @Column(name = "estado")
-    private boolean estate;
+    private Integer cantidadStock;
+    private Boolean estado;
+
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private Categoria categoria;
 
 }
