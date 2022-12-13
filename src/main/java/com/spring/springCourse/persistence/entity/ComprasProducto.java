@@ -16,6 +16,7 @@ public class ComprasProducto {
     private Double total;
     private Boolean estado;
     @ManyToOne
+    @MapsId("idCompra") //para que sepa con que id se enlazan las compras
     @JoinColumn(name = "id_compra",insertable = false,updatable = false)
     private Compra compra;
     @ManyToOne

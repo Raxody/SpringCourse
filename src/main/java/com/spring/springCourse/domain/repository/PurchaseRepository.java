@@ -1,0 +1,17 @@
+package com.spring.springCourse.domain.repository;
+
+import com.spring.springCourse.domain.Purchase;
+import com.spring.springCourse.domain.PurchaseItem;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface PurchaseRepository {
+
+    List<Purchase> getAll();
+    Optional<List<Purchase>> getByClient(String clientId);
+
+    Purchase save(Purchase purchase);
+
+
+}

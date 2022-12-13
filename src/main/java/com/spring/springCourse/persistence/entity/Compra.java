@@ -24,9 +24,9 @@ public class Compra {
     private String comentario;
     private String estado;
     @ManyToOne
-    @JoinColumn(name = "id",insertable = false,updatable = false)
+    @JoinColumn(name = "id_cliente",insertable = false,updatable = false)
     private Cliente cliente;
-    @OneToMany(mappedBy = "compra")
+    @OneToMany(mappedBy = "compra", cascade = {CascadeType.ALL})
     private List<ComprasProducto> comprasProductos;
 
 }
